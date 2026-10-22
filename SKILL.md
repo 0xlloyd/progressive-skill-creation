@@ -16,6 +16,7 @@ The user's approved wording is final, so never rewrite, merge or tidy an approve
 Start by asking the user for the skill's purpose, then keep asking clarifying questions until five things are clear: the goal and intent behind using it (what the person wants to achieve and what success looks like), what the skill does, when it should trigger, what it outputs, and any constraints.
 If the conversation already shows the workflow (for example, the user says "turn this into a skill"), take the answers from it first and ask only about the gaps.
 Once all five are clear, play them back as a short brief and get the user's confirmation before starting research.
+If the user asks to move on before answering, fill the gaps from the conversation, mark them as assumptions in the brief, and ask the user to confirm it.
 
 ## Expert research
 
@@ -46,6 +47,7 @@ Point out any repetition, contradiction or gap you notice, and propose a fix for
 ## Testing
 
 After the read-back, use `skill-creator` to test the skill: draft realistic test prompts with the user, run them, review the outputs together, and optimise the description for triggering where the environment supports it.
+For a process skill whose output is a conversation rather than a file, a live run of the skill on a real task counts as the test, alongside trigger checks on the description.
 Any change the tests suggest goes back through the same sentence-by-sentence approval before it enters the skill.
 
 ## Deliver
@@ -59,5 +61,6 @@ End the session by running `session-self-learning` on this skill, so lessons fro
 ## Rules for every skill created
 
 Write every skill for anyone to use: refer to "the user", never a named person, company or private detail.
-End every skill created with a closing step that runs `session-self-learning`, so each skill keeps improving from real use.
+End every skill created, except `session-self-learning` itself, with a closing step that runs `session-self-learning`, so each skill keeps improving from real use.
 When a skill calls another skill, add a fallback for users who don't have it installed, so the skill still works on its own.
+Make every skill understandable on its own: it can call other skills, but explain in its own words any rule or term it borrows from them, so it still makes sense to someone who has only that one installed.
